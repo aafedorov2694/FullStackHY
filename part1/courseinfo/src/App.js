@@ -9,10 +9,21 @@ const Header = (props) => {
 
 }
 
+const Part = (props) => {
+  	return(
+      <div>
+        <p>{props.part}</p>
+        <p>{props.exercise}</p>
+      </div>
+    );
+}
+
 const Content = (props) => {
+
   return (
     <div>
-      <p>{props.part}</p> <p>{props.exercise}</p>
+     <Part part = {props.part} exercise = {props.exercise}/>
+     <Part part = {props.part} exercise = {props.exercise}/>
       
     </div>
   );
@@ -28,6 +39,7 @@ const Total = (props) => {
 }
 
 const App = () => {
+  
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
   const exercises1 = 10
