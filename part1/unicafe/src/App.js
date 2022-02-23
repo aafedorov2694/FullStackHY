@@ -10,10 +10,6 @@ const Statistics = (props) => {
   let avrg = (props.good+badCount)/props.total;
   let positive = props.good/sum*100;
 
-
-
-    
-  
   return(
     <div>
       <p>all: {sum}</p>
@@ -48,7 +44,18 @@ const App = () => {
 
   }
 
- 
+  if(good === 0 && bad === 0 && neutral === 0)  {
+    return(
+      <div>
+         <h2>Give feedback</h2>
+          <button onClick ={plusGood}>good</button>
+          <button onClick ={plusNeutral}>neutral</button>
+          <button onClick ={plusBad}>bad</button>
+        <h2>Statistics</h2> 
+          <p>No feedback given</p>
+      </div>
+    )
+  } else {  
 
   return (
     <div>
@@ -68,6 +75,7 @@ const App = () => {
 
     </div>
   );
+  }
 }
 
 
