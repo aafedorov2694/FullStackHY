@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.added {
+
+  padding: 20px;
+  margin-left: 0.5%;
+  margin-right: 50%;
+  margin-bottom: 1%;
+  background-color: blanchedalmond;
+  border-radius: 25px;
+  color: rgb(99, 202, 168);
+  border: solid;
+  font-style:italic;
+  font-size: larger;
+}
+
+.deleted {
+  padding: 20px;
+  margin-left: 0.5%;
+  margin-right: 50%;
+  margin-bottom: 1%;
+  background-color:   blanchedalmond;
+  border-radius: 25px;
+  color: rgb(234, 22, 50);
+  border: solid;
+  font-style:italic;
+  font-size: larger;
+}

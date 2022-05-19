@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
-import axios from 'axios'
+import networking from './services/networking';
+import Notification from './components/Notification'
 
 const App = () => {
 
@@ -11,21 +12,26 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
+  const [stateUpdate, setStateUpdate] = useState(false)
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/persons')
+    networking
+      .getAll()
       .then(res => {
         setPersons(res.data)
-        console.log('Rsponse: ', res)
+     
       })
       .catch(e => console.log('Axios error: ', e))
-  }, [])
+  }, [stateUpdate, newName, newNumber])
 
+  console.log('message: ', message)
 
-
+  
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message ={message} />
       <div>
         <Filter setFilter={setFilter} filter={filter} />
 
@@ -38,11 +44,12 @@ const App = () => {
         setNewName={setNewName}
         newNumber={newNumber}
         setNewNumber={setNewNumber}
+        setMessage = {setMessage}
       />
 
 
       <h2>Numbers</h2>
-      <Persons filter={filter} persons={persons} />
+      <Persons filter={filter} persons={persons} setStateUpdate = {setStateUpdate} stateUpdate = {stateUpdate} setMessage = {setMessage}/>
     </div>
   )
 }
