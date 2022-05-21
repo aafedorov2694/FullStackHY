@@ -1,0 +1,3 @@
+[submodule "Part3_FullStack"]
+	path = Part3_FullStack
+	url = https://github.com/aafedorov2694/Part3_FullStack.git
